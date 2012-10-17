@@ -41,8 +41,8 @@ class Showoff
       return
     @fileReader.readAsDataURL(file)
 
-  _onFileReaderError: (event) =>
-    @options.onFileReaderError(event) if @options.onFileReaderError?
+  _onFileReaderError: (error) =>
+    @options.onFileReaderError(error) if @options.onFileReaderError?
 
   _onFileReaderLoad: (event) =>
     @_setDestinationSrc(event.target.result)

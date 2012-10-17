@@ -52,6 +52,9 @@
         }
         return;
       }
+      if (typeof this.options.destination === "string") {
+        this.options.destination = $(this.options.destination);
+      }
       this.fileReader = new FileReader;
       this.fileReader.onload = this._onFileReaderLoad;
       this.$el.change(this._onChange);
@@ -66,7 +69,7 @@
     };
 
     Showoff.prototype._processFile = function(file) {
-      if (!this.options.filetypeMatcher.test(file.type)) {
+      if ((this.options.filetypeMatcher != null) && !this.options.filetypeMatcher.test(file.type)) {
         if (this.options.onInvalidFiletype != null) {
           this.options.onInvalidFiletype(file.type);
         }
@@ -75,9 +78,9 @@
       return this.fileReader.readAsDataURL(file);
     };
 
-    Showoff.prototype._onFileReaderError = function(event) {
+    Showoff.prototype._onFileReaderError = function(error) {
       if (this.options.onFileReaderError != null) {
-        return this.options.onFileReaderError(event);
+        return this.options.onFileReaderError(error);
       }
     };
 

@@ -26,27 +26,45 @@ $("#myFile").showoff({
 
 ## Options & Callbacks
 
-#### `destination` Required _jQuery Object, Selector String_
-Default: `null` — The `img` element that you would like the preview to use.
+#### `destination`
+* __Required__
+* __Type:__ jQuery Object, selector string
+* __Default:__ `null`
 
-#### `onNoBrowserSupport` _Function_
-Default: `null` — Called during initialization if browser has no FileReader API support.
+The `img` element that you would like the preview to use.
 
-#### `filetypeMatcher` _RegExp Object, Regular Expression Literal_
-Default:
+#### `onNoBrowserSupport`
+* __Type:__ Function()
+* __Default:__ `null`
+
+Called during initialization if browser has no FileReader API support.
+
+#### `filetypeMatcher`
+* __Type:__ RegExp Object, Regular Expression Literal
+* __Default:__
 ```javascript
 /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i
 ```
+
 Used to validate input filetype.
 
-#### `onInvalidFiletype` _Function_
-Default: `null` — Called while validating the file if the filetype is not supported by the `filetypeMatcher` regex.
+#### `onInvalidFiletype`
+* __Type:__ Function(<String> filetype)
+* __Default:__ `null`
+
+Called while validating the file if the filetype is not supported by the `filetypeMatcher` regex.
 
 #### `onFileReaderError` _Function_
-Default: `null` — Called if FileReader errors while trying to read the file.
+* __Type:__ Function(<DOMError> error)
+* __Default:__ `null`
 
-#### `onDestinationUpdate` _Function_
-Default: `null` — Called after updating the `src` attribute of the `destination` element.
+Called if FileReader errors while trying to read the file.
+
+#### `onDestinationUpdate`
+* __Type:__ Function()
+* __Default:__ `null`
+
+Called after updating the `src` attribute of the `destination` element.
 
 ## Contributing
 
