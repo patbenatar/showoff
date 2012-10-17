@@ -27,19 +27,26 @@ $("#myFile").showoff({
 ## Options & Callbacks
 
 #### `destination`
-* __Required__
-* __Type:__ jQuery Object, selector string
-* __Default:__ `null`
 
 The `img` element that you would like the preview to use.
 
-#### `onNoBrowserSupport`
-* __Type:__ Function()
+* __Required:__ Yes
+* __Type:__ jQuery Object, selector string
 * __Default:__ `null`
+
+#### `onNoBrowserSupport`
 
 Called during initialization if browser has no FileReader API support.
 
+* __Required:__ No
+* __Type:__ Function()
+* __Default:__ `null`
+
 #### `filetypeMatcher`
+
+Used to validate input filetype.
+
+* __Required:__ No
 * __Type:__ RegExp Object, Regular Expression Literal
 * __Default:__
 
@@ -47,25 +54,29 @@ Called during initialization if browser has no FileReader API support.
 /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i
 ```
 
-Used to validate input filetype.
-
 #### `onInvalidFiletype`
-* __Type:__ Function(<String> filetype)
-* __Default:__ `null`
 
 Called while validating the file if the filetype is not supported by the `filetypeMatcher` regex.
 
-#### `onFileReaderError` _Function_
-* __Type:__ Function(<DOMError> error)
+* __Required:__ No
+* __Type:__ Function(<String> filetype)
 * __Default:__ `null`
+
+#### `onFileReaderError` _Function_
 
 Called if FileReader errors while trying to read the file.
 
-#### `onDestinationUpdate`
-* __Type:__ Function()
+* __Required:__ No
+* __Type:__ Function(<DOMError> error)
 * __Default:__ `null`
 
+#### `onDestinationUpdate`
+
 Called after updating the `src` attribute of the `destination` element.
+
+* __Required:__ No
+* __Type:__ Function()
+* __Default:__ `null`
 
 ## Contributing
 
