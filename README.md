@@ -78,6 +78,16 @@ Called after updating the `src` attribute of the `destination` element.
 * __Type:__ Function()
 * __Default:__ `null`
 
+## API
+
+### `isSupported`
+
+Does the current browser support the functionality required by Showoff?
+
+```javascript
+Showoff.isSupported()
+```
+
 ## Contributing
 
 1. Fork and clone your fork

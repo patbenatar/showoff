@@ -1,4 +1,4 @@
-class Showoff
+class @Showoff
 
   settings:
     destination: null
@@ -11,6 +11,9 @@ class Showoff
   $el: null
   fileReader: null
 
+  @isSupported: ->
+    !!(window.File && window.FileReader && window.FileList && window.Blob)
+
   constructor: (@$el, options = {}) ->
     @options = $.extend({}, @settings, options)
 
@@ -18,7 +21,7 @@ class Showoff
     throw "Destination must be an img element" unless @options.destination? && @options.destination.is("img")
 
     # Make sure browser supports all the cool HTML5 features we want
-    unless window.File && window.FileReader && window.FileList && window.Blob
+    unless @constructor.isSupported()
       @options.onNoBrowserSupport() if @options.onNoBrowserSupport?
       return
 
